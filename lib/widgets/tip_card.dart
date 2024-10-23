@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:meditation_app/models/tip.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        body: TipCard(tip: Tip(text: "text", author: "author"))
-      ),
-    )
-  );
+  runApp(MaterialApp(
+    home: Scaffold(body: TipCard(tip: Tip(text: "text", author: "author"))),
+  ));
 }
 
 class TipCard extends StatelessWidget {
@@ -24,12 +20,11 @@ class TipCard extends StatelessWidget {
           TextFormField(
             readOnly: true,
             maxLines: 3,
-            initialValue: "Something",
+            initialValue: "Breathe deeply",
             decoration: const InputDecoration(
-              labelText: "Tip",
-              hintText: "something",
-              border: OutlineInputBorder()
-            ),
+                labelText: "Tip",
+                hintText: "something",
+                border: OutlineInputBorder()),
             validator: (value) {
               return (value!.isEmpty) ? "fill in the blank" : null;
             },
@@ -38,5 +33,4 @@ class TipCard extends StatelessWidget {
       ),
     );
   }
-  
 }
