@@ -1,6 +1,7 @@
-import 'dart:io';
+//import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:meditation_app/providers/users_provider.dart';
 import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
@@ -13,8 +14,8 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<UserProvider>(context, listen: true);
-    String? profilePicturePath = provider.currentUser.profilePicturePath;
+    final provider = Provider.of<UsersProvider>(context, listen: true);
+    //String? profilePicturePath;//provider.currentUser.profilePicturePath;
 
     return Scaffold(
       appBar: AppBar(
@@ -34,15 +35,8 @@ class _ProfileState extends State<Profile> {
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(200.0),
-                  child: profilePicturePath != null &&
-                          File(profilePicturePath).existsSync()
-                      ? Image.file(
-                          File(profilePicturePath),
-                          width: 300,
-                          height: 300,
-                          fit: BoxFit.cover,
-                        )
-                      : const Image(
+                  child: 
+                      const Image(
                           image: AssetImage(
                               "assets/images/profile.jpg"), // Default image
                           width: 300,
@@ -58,15 +52,15 @@ class _ProfileState extends State<Profile> {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 32.0),
-                child: Column(
+                child: const Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Full Name: ${provider.currentUser.fullName}",
-                        style: const TextStyle(fontSize: 28.0)),
+                    Text("Full Name: name",
+                        style: TextStyle(fontSize: 28.0)),
                   ],
                 ),
               ),
-              Container(finishedExercises)
+              //Container(finishedExercises)
             ],
           ),
         ),
@@ -75,12 +69,12 @@ class _ProfileState extends State<Profile> {
   }
 
   void _changeProfilePicture(
-      BuildContext context, UserProvider provider) async {
+      BuildContext context, UsersProvider provider) async {
     final ImagePicker _picker = ImagePicker();
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
-      provider.updateProfilePicture(image.path);
+      //provider.updateProfilePicture(image.path);
     }
   }
 }

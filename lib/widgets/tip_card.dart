@@ -8,7 +8,7 @@ class TipCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw Card(
+    return Card(
       child: Column(
         children: [
           TextFormField(
