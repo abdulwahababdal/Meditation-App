@@ -12,8 +12,9 @@ class TipCard extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
-            enabled: false,
+            readOnly: true,
             maxLines: 3,
+            initialValue: "Something",
             decoration: const InputDecoration(
               labelText: "Tip",
               hintText: "something",
