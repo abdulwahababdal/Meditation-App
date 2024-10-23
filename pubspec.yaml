@@ -1,6 +1,6 @@
 name: meditation_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -12,6 +12,7 @@ dependencies:
   dio: ^5.7.0
   json_annotation: ^4.9.0
   build_runner: ^2.4.13
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
