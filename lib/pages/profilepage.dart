@@ -4,14 +4,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:meditation_app/providers/users_provider.dart';
 import 'package:provider/provider.dart';
 
-class Profile extends StatefulWidget {
+class Profile extends StatelessWidget {
   const Profile({super.key});
 
-  @override
-  State<Profile> createState() => _ProfileState();
-}
-
-class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<UsersProvider>(context, listen: true);
@@ -36,12 +31,14 @@ class _ProfileState extends State<Profile> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(200.0),
                   child: 
-                      const Image(
-                          image: AssetImage(
-                              "assets/images/profile.jpg"), // Default image
-                          width: 300,
-                          height: 300,
-                          fit: BoxFit.cover,
+                      Container(
+                          decoration: BoxDecoration(color: Colors.blue[200]),
+                          width: 200,
+                          height: 200,
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.grey[800],
+                          ),
                         ),
                 ),
               ),
