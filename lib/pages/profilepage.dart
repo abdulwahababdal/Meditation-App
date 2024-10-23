@@ -4,12 +4,21 @@ import 'package:image_picker/image_picker.dart';
 import 'package:meditation_app/providers/users_provider.dart';
 import 'package:provider/provider.dart';
 
+void main() {
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: Profile())
+      ),
+    );
+}
+
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<UsersProvider>(context, listen: true);
+    //final provider = Provider.of<UsersProvider>(context, listen: true);
     //String? profilePicturePath;//provider.currentUser.profilePicturePath;
 
     return Scaffold(
@@ -23,10 +32,11 @@ class Profile extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: () {
-                  _changeProfilePicture(context, provider);
+                  //_changeProfilePicture(context, provider);
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(200.0),
@@ -38,6 +48,7 @@ class Profile extends StatelessWidget {
                           child: Icon(
                             Icons.person,
                             color: Colors.grey[800],
+                            size: 200,
                           ),
                         ),
                 ),

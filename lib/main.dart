@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/add',
-        builder: (context, state) => AddtipPage(),
+        builder: (context, state) => const AddtipPage(),
       ),
       // GoRoute(
       //   path: '/update/:petId',

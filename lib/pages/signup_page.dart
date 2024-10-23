@@ -1,5 +1,5 @@
 import 'package:meditation_app/models/user.dart';
-import 'package:adopt_app/providers/auth_provider.dart';
+import 'package:meditation_app/providers/auth_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
