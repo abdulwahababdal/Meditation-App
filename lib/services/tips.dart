@@ -64,15 +64,4 @@ class DioClient {
       print(error);
     }
   }
-
-  Future<Tip> adoptTip({required int tipId}) async {
-    late Tip retrievedTip;
-    try {
-      Response response = await Client.dio.post('/Tips/adopt/$tipId');
-      retrievedTip = Tip.fromJson(response.data);
-    } on DioException catch (error) {
-      print(error);
-    }
-    return retrievedTip;
-  }
 }
