@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'models/tip.dart';
 
 void main() {
   runApp(const MainApp());

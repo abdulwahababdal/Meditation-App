@@ -9,6 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dio: ^5.7.0
+  json_annotation: ^4.9.0
+  build_runner: ^2.4.13
 
 dev_dependencies:
   flutter_test:
