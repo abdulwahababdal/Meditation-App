@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      themeMode: ThemeMode.light,
+      darkTheme: ThemeData.dark(),
       routerConfig: _router,
     );
   }
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => const Homepage(),
+        builder: (context, state) => Homepage(),
       ),
       GoRoute(
         path: '/add',

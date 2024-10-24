@@ -42,7 +42,6 @@ class MyColors {
 class TipCard extends StatelessWidget {
   final Tip tip;
   const TipCard({super.key, required this.tip});
-
   //TipsProvider provider = context.watch<TipsProvider>();
   @override
   Widget build(BuildContext context) {
@@ -93,12 +92,23 @@ class TipCard extends StatelessWidget {
                       )
                     ],
                   ),
-                  const Row(
+                  Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
-                        Icons.thumb_down,
-                        color: Colors.red,
+                      StatefulBuilder(
+                        builder: (context, setState) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                provider.downTapped = !provider.downTapped;
+                              });
+                            },
+                            child: Icon(
+                              Icons.thumb_down,
+                              color: (provider.downTapped) ? Colors.red : Colors.grey,
+                            ),
+                          );
+                        }
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),

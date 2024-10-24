@@ -6,6 +6,7 @@ class TipsProvider extends ChangeNotifier{
   List<Tip> tips = [];
   bool tapped = false;
   Color color = Colors.grey;
+  bool downTapped = false;
 
   Future<void> getTips() async {
     tips = await DioClient().getTips();

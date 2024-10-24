@@ -1,13 +1,23 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:meditation_app/models/user.dart';
 import 'package:meditation_app/services/client.dart';
 import 'package:dio/dio.dart';
 
 class AuthServices {
-  Future<String> signup({required User user}) async {
+  Future<String> signup({required String username, password, image}) async {
     late String token;
     try {
       Response response =
-          await Client.dio.post('/signup', data: user.toJson());
+          await Client.dio.post('/signup', data: FormData.fromMap({
+            "username": username,
+            "password": password,
+            if (kIsWeb) 
+              "image" : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+            else 
+              "image": await MultipartFile.fromFile(image), 
+          })
+        );
       token = response.data["token"];
     } on DioException catch (error) {
       print(error);
@@ -26,4 +36,8 @@ class AuthServices {
     }
     return token;
   }
+
+  // Future<String> getImage({required User user}) async {
+
+  // }
 }

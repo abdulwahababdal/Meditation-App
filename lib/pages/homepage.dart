@@ -9,13 +9,13 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    const MaterialApp(home: Scaffold(body: Homepage())),
+    MaterialApp(home: Scaffold(body: Homepage())),
   );
 }
 
 class Homepage extends StatelessWidget {
-  const Homepage({super.key});
-
+  Homepage({super.key});
+  bool isLoged = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +79,12 @@ class Homepage extends StatelessWidget {
                         padding: EdgeInsets.zero,
                         children: [
                           Text("Welcome ${provider.user.username}"),
+                          Image.network(
+                            "http://coded-meditation.eapi.joincoded.com/media/1729754471496ku.png",
+                            //provider.user.image!,
+                            scale: 1.0,
+                          ),
+                          
                           ListTile(
                             title: const Text("Log out"),
                             trailing: const Icon(Icons.how_to_reg),
