@@ -60,4 +60,12 @@ class DioClient {
       print(error);
     }
   }
+
+  // Future<void> deleteTip({required int tipId}) async {
+  //   try {
+  //     await Client.dio.delete('/Tips/$tipId');
+  //   } on DioException catch (error) {
+  //     print(error);
+  //   }
+  // }
 }
