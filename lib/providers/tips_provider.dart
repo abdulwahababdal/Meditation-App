@@ -4,6 +4,8 @@ import 'package:meditation_app/services/tips.dart';
 
 class TipsProvider extends ChangeNotifier{
   List<Tip> tips = [];
+  bool tapped = false;
+  Color color = Colors.grey;
 
   Future<void> getTips() async {
     tips = await DioClient().getTips();
@@ -17,7 +19,7 @@ class TipsProvider extends ChangeNotifier{
 
   void updateTip(Tip tip) async {
     Tip newTip = await DioClient().updateTip(tip: tip);
-    int index = tips.indexWhere((pet) => pet.id == newTip.id);
+    int index = tips.indexWhere((tip) => tip.id == newTip.id);
     tips[index] = newTip;
     notifyListeners();
   }
@@ -27,4 +29,21 @@ class TipsProvider extends ChangeNotifier{
     tips.removeWhere((tip) => tip.id == tipId);
     notifyListeners();
   }
+
+  void check() {
+    tapped = !tapped;
+    color = (tapped) ? Colors.blue : Colors.grey;
+    //print(color.toString());
+  }
+
+  Color getColor() {
+    return color;
+  }
+
+  // void addUpVote(int tipId, int userId) {
+
+  //   upvotes.add(userId);
+  //   DioClient().updateTip(tip: Tip(text: text, author: author));
+  // }
+
 }

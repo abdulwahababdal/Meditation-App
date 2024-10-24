@@ -3,10 +3,6 @@ import 'package:meditation_app/services/client.dart';
 import 'package:dio/dio.dart';
 
 class AuthServices {
-  // final Dio _dio = Dio();
-
-  // final _baseUrl = 'https://coded-pets-api-auth.eapi.joincoded.com';
-
   Future<String> signup({required User user}) async {
     late String token;
     try {

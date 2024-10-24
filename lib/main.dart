@@ -4,6 +4,7 @@ import 'package:meditation_app/pages/addTip_page.dart';
 import 'package:meditation_app/pages/homepage.dart';
 import 'package:meditation_app/pages/signin_page.dart';
 import 'package:meditation_app/pages/signup_page.dart';
+import 'package:meditation_app/providers/auth_provider.dart';
 import 'package:meditation_app/providers/tips_provider.dart';
 import 'package:meditation_app/widgets/tip_card.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider<TipsProvider>(create: (_) => TipsProvider()),
-        //ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
+        ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
       ],
       child: MyApp(),
     ),
