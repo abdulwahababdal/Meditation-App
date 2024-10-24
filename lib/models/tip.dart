@@ -1,7 +1,6 @@
 // import 'package:json_annotation/json_annotation.dart';
 
 // @JsonSerializable()
-import 'package:meditation_app/services/tips.dart';
 
 class Tip {
   int? id;
@@ -10,10 +9,7 @@ class Tip {
   List upvotes = [];
   List downvotes = [];
 
-  Tip(
-      {this.id,
-      required this.text,
-      required this.author});
+  Tip({this.id, required this.text, required this.author});
 
   bool upVoted(int userId) => upvotes.contains(id);
   bool downVoted(String author) => downvotes.contains(author);

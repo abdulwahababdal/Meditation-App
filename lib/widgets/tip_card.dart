@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meditation_app/main.dart';
 import 'package:meditation_app/models/tip.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:meditation_app/providers/tips_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -32,13 +30,13 @@ class MyColors {
 // class ActiveIcon extends StatefulWidget {
 
 //   const ActiveIcon({super.key});
-  
+
 //   @override
 //   State<StatefulWidget> createState() {
 //     // TODO: implement createState
 //     throw UnimplementedError();
 //   }
-  
+
 // }
 
 class TipCard extends StatelessWidget {
@@ -52,13 +50,6 @@ class TipCard extends StatelessWidget {
     // TODO: implement build
     return Card(
       child: ListTile(
-<<<<<<< HEAD
-        title: TextFormField(
-          readOnly: true,
-          maxLines: 3,
-          initialValue: tip.text,
-          decoration: const InputDecoration(border: OutlineInputBorder()),
-=======
         title: Row(
           children: [
             const Icon(Icons.person),
@@ -70,12 +61,10 @@ class TipCard extends StatelessWidget {
             Expanded(
               flex: 10,
               child: TextFormField(
-                  readOnly: true,
-                  maxLines: 2,
-                  initialValue: tip.text,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder()
-                  ),
+                readOnly: true,
+                maxLines: 2,
+                initialValue: tip.text,
+                decoration: const InputDecoration(border: OutlineInputBorder()),
               ),
             ),
             Expanded(
@@ -85,21 +74,19 @@ class TipCard extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      StatefulBuilder(
-                        builder: (context, setState) {
-                          return GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                provider.check();
-                              });
-                            },
-                            child: Icon(
-                              Icons.thumb_up, 
-                              color: provider.getColor(),
-                            ),
-                          );
-                        }
-                      ),
+                      StatefulBuilder(builder: (context, setState) {
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              provider.check();
+                            });
+                          },
+                          child: Icon(
+                            Icons.thumb_up,
+                            color: provider.getColor(),
+                          ),
+                        );
+                      }),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text("${tip.upvotes.length}"),
@@ -109,7 +96,10 @@ class TipCard extends StatelessWidget {
                   const Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.thumb_down, color: Colors.red,),
+                      Icon(
+                        Icons.thumb_down,
+                        color: Colors.red,
+                      ),
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text("1"),
@@ -120,7 +110,6 @@ class TipCard extends StatelessWidget {
               ),
             ),
           ],
->>>>>>> b66622cac2f65d644a89da68bbdd0a464d990dff
         ),
         // trailing: const Column(
         //   mainAxisSize: MainAxisSize.min,

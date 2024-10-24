@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class SigninPage extends StatelessWidget {
-  SigninPage({Key? key}) : super(key: key);
+  SigninPage({super.key});
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   @override

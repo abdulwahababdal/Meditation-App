@@ -73,8 +73,8 @@ class Profile extends StatelessWidget {
 
   void _changeProfilePicture(
       BuildContext context, UsersProvider provider) async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
       //provider.updateProfilePicture(image.path);

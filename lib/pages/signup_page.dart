@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SignupPage extends StatelessWidget {
-  SignupPage({Key? key}) : super(key: key);
+  SignupPage({super.key});
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   @override
