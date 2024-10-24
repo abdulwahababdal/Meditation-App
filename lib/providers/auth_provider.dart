@@ -26,7 +26,7 @@ class AuthProvider extends ChangeNotifier {
   }
 
   bool isAuth() {
-    return (token.isNotEmpty && !Jwt.isExpired(token)); 
+    return (token.isNotEmpty && !Jwt.isExpired(token));
   }
 
   Future<void> initAuth() async {
@@ -40,6 +40,7 @@ class AuthProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
   void _setToken(String token) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("token", token);
