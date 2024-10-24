@@ -52,6 +52,13 @@ class TipCard extends StatelessWidget {
     // TODO: implement build
     return Card(
       child: ListTile(
+<<<<<<< HEAD
+        title: TextFormField(
+          readOnly: true,
+          maxLines: 3,
+          initialValue: tip.text,
+          decoration: const InputDecoration(border: OutlineInputBorder()),
+=======
         title: Row(
           children: [
             const Icon(Icons.person),
@@ -113,6 +120,7 @@ class TipCard extends StatelessWidget {
               ),
             ),
           ],
+>>>>>>> b66622cac2f65d644a89da68bbdd0a464d990dff
         ),
         // trailing: const Column(
         //   mainAxisSize: MainAxisSize.min,
