@@ -47,6 +47,6 @@ class TipCard extends StatelessWidget {
         //subtitle: const Text('This is subtitle'),
         //selected: true,
       ),
-    ));
+    );
   }
 }
