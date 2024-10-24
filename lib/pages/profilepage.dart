@@ -6,11 +6,8 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
-      home: Scaffold(
-        body: Profile())
-      ),
-    );
+    const MaterialApp(home: Scaffold(body: Profile())),
+  );
 }
 
 class Profile extends StatelessWidget {
@@ -27,7 +24,7 @@ class Profile extends StatelessWidget {
           "Profile",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color(0xFF005BAA),
+        backgroundColor: const Color.fromARGB(255, 205, 154, 255),
       ),
       body: SafeArea(
         child: Center(
@@ -40,17 +37,16 @@ class Profile extends StatelessWidget {
                 },
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(200.0),
-                  child: 
-                      Container(
-                          decoration: BoxDecoration(color: Colors.blue[200]),
-                          width: 200,
-                          height: 200,
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.grey[800],
-                            size: 200,
-                          ),
-                        ),
+                  child: Container(
+                    decoration: BoxDecoration(color: Colors.blue[200]),
+                    width: 200,
+                    height: 200,
+                    child: Icon(
+                      Icons.person,
+                      color: Colors.grey[800],
+                      size: 200,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -63,8 +59,7 @@ class Profile extends StatelessWidget {
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text("Full Name: name",
-                        style: TextStyle(fontSize: 28.0)),
+                    Text("Full Name: name", style: TextStyle(fontSize: 28.0)),
                   ],
                 ),
               ),
