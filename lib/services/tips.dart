@@ -4,10 +4,6 @@ import 'package:meditation_app/models/tip.dart';
 import 'package:meditation_app/services/client.dart';
 
 class DioClient {
-  // final Dio _dio = Dio();
-
-  // final _baseUrl = 'https://coded-pets-api-auth.eapi.joincoded.com';
-
   Future<List<Tip>> getTips() async {
     List<Tip> tips = [];
     try {

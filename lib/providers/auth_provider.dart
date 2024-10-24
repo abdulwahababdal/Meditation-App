@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:adopt_app/models/user.dart';
-import 'package:adopt_app/services/auth.dart';
-import 'package:adopt_app/services/client.dart';
+import 'package:meditation_app/models/user.dart';
+import 'package:meditation_app/services/auth.dart';
+import 'package:meditation_app/services/client.dart';
 import 'package:flutter/material.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 import 'package:shared_preferences/shared_preferences.dart';

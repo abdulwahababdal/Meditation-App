@@ -9,17 +9,17 @@ import 'package:meditation_app/widgets/tip_card.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 
-// void main() {
-//   runApp(
-//     MultiProvider(
-//       providers: [
-//         ChangeNotifierProvider<TipsProvider>(create: (_) => TipsProvider()),
-//         //ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
-//       ],
-//       child: MyApp(),
-//     ),
-//   );
-// }
+void main() {
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<TipsProvider>(create: (_) => TipsProvider()),
+        //ChangeNotifierProvider<AuthProvider>(create: (_) => AuthProvider()),
+      ],
+      child: MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);

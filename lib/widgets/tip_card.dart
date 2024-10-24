@@ -19,22 +19,18 @@ class TipCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Card(
-      child: Column(
-        children: [
-          TextFormField(
-            readOnly: true,
-            maxLines: 3,
-            initialValue: "Something",
-            decoration: const InputDecoration(
-              labelText: "Tip",
-              hintText: "something",
-              border: OutlineInputBorder()
-            ),
-            validator: (value) {
-              return (value!.isEmpty) ? "fill in the blank" : null;
-            },
+      child: ListTile(
+        title: TextFormField(
+          readOnly: true,
+          maxLines: 3,
+          initialValue: tip.text,
+          decoration: const InputDecoration(
+            border: OutlineInputBorder()
           ),
-        ],
+        ),
+        trailing: const Icon(Icons.done),
+        //subtitle: const Text('This is subtitle'),
+        //selected: true,
       ),
     );
   }
