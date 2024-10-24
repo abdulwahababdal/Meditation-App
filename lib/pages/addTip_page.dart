@@ -9,6 +9,7 @@ class AddtipPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(title: const Text("Add a Tip"),),
         body: Padding(
           padding: const EdgeInsets.all(40.0),
           child: Column(
@@ -30,7 +31,6 @@ class AddtipPage extends StatelessWidget {
                 onPressed: () {}, 
                 child: const Text("Submit")
               ),
-              TipCard(tip: Tip(text: "text", author: "author"))
             ],
           ),
           
