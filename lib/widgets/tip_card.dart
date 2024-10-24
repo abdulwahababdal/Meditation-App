@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:meditation_app/models/tip.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        body: TipCard(tip: Tip(text: "text", author: "author"))
-      ),
-    )
-  );
+  runApp(MaterialApp(
+    home: Scaffold(body: TipCard(tip: Tip(text: "text", author: "author"))),
+  ));
 }
 
 class TipCard extends StatelessWidget {
@@ -34,5 +30,4 @@ class TipCard extends StatelessWidget {
       ),
     );
   }
-  
 }
