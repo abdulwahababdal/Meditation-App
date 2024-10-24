@@ -39,9 +39,7 @@ class TipCard extends StatelessWidget {
           readOnly: true,
           maxLines: 3,
           initialValue: tip.text,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder()
-          ),
+          decoration: const InputDecoration(border: OutlineInputBorder()),
         ),
         trailing: const Icon(Icons.done),
         //subtitle: const Text('This is subtitle'),

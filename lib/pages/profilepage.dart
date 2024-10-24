@@ -4,11 +4,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:meditation_app/providers/users_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(
-    const MaterialApp(home: Scaffold(body: Profile())),
-  );
-}
+// void main() {
+//   runApp(
+//     const MaterialApp(home: Scaffold(body: Profile())),
+//   );
+// }
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
