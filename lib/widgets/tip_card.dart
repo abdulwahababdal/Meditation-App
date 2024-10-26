@@ -14,6 +14,8 @@ void main() {
       tip: Tip(
         text: "text",
         author: "author",
+        upvotes: [],
+        downvotes: []
       ),
     )),
   ));
@@ -27,22 +29,12 @@ class MyColors {
   static const Color color5 = Color(0xFFE5BABD);
 }
 
-// class ActiveIcon extends StatefulWidget {
-
-//   const ActiveIcon({super.key});
-
-//   @override
-//   State<StatefulWidget> createState() {
-//     // TODO: implement createState
-//     throw UnimplementedError();
-//   }
-
-// }
-
 class TipCard extends StatelessWidget {
   final Tip tip;
-  const TipCard({super.key, required this.tip});
+  bool appear = false;
+  TipCard({super.key, required this.tip});
   //TipsProvider provider = context.watch<TipsProvider>();
+  
   @override
   Widget build(BuildContext context) {
     TipsProvider provider = context.watch<TipsProvider>();
@@ -67,8 +59,9 @@ class TipCard extends StatelessWidget {
               ),
             ),
             Expanded(
+              flex: 1,
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                //mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
                     mainAxisSize: MainAxisSize.min,
@@ -77,12 +70,12 @@ class TipCard extends StatelessWidget {
                         return GestureDetector(
                           onTap: () {
                             setState(() {
-                              provider.check();
+                              provider.checkUpvote(tip);
                             });
                           },
                           child: Icon(
                             Icons.thumb_up,
-                            color: provider.getColor(),
+                            color: provider.color,
                           ),
                         );
                       }),
@@ -112,7 +105,7 @@ class TipCard extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Text("1"),
+                        child: Text("${tip.downvotes.length}"),
                       )
                     ],
                   ),
@@ -121,6 +114,14 @@ class TipCard extends StatelessWidget {
             ),
           ],
         ),
+        trailing: (appear) ? 
+          GestureDetector(
+            onTap: () {
+              provider.deleteTip(tip.id!);
+            },
+            child: Icon(Icons.delete, color: Colors.red,)
+          ) 
+          : null,
         // trailing: const Column(
         //   mainAxisSize: MainAxisSize.min,
         //   children: [

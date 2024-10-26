@@ -14,7 +14,7 @@ class TipsProvider extends ChangeNotifier{
 
   void createTip(Tip tip) async {
     Tip newTip = await DioClient().createTip(tip: tip);
-    tips.insert(0, newTip);
+    tips.add(newTip);
     notifyListeners();
   }
 
@@ -31,14 +31,38 @@ class TipsProvider extends ChangeNotifier{
     notifyListeners();
   }
 
-  void check() {
+  void checkUpvote(Tip tip) {
     tapped = !tapped;
-    color = (tapped) ? Colors.blue : Colors.grey;
+    if (tapped) {
+      color = Colors.blue;
+      tip.upvotes.add(tip.author.length);
+      updateTip(tip);
+    }
+    else {
+      color = Colors.grey;
+      tip.upvotes.remove(tip.author.length);
+      updateTip(tip);
+    }
     //print(color.toString());
   }
 
   Color getColor() {
     return color;
+  }
+
+  void checkDownvote(Tip tip) {
+    downTapped = !downTapped;
+    if (downTapped) {
+      color = Colors.red;
+      tip.downvotes.add(tip.author);
+      updateTip(tip);
+    }
+    else {
+      color = Colors.grey;
+      tip.upvotes.remove(tip.author);
+      updateTip(tip);
+    }
+    //print(color.toString());
   }
 
   // void addUpVote(int tipId, int userId) {

@@ -1,0 +1,110 @@
+{
+    "tips" : [
+        {
+            "id": 1,
+            "text": "Happy Coding!",
+            "author": "Omar",
+            "upvotes": [
+                5,
+                42,
+                86,
+                90
+            ],
+            "downvotes": [
+                "khadeejah",
+                "hussain2000"
+            ]
+        },
+        {
+            "text": "Big tip",
+            "id": 4,
+            "author": "kld",
+            "upvotes": [
+                5,
+                42,
+                86,
+                90
+            ],
+            "downvotes": [
+                "khadeejah",
+                "hussain2000"
+            ]
+        },
+        {
+            "text": "help sos",
+            "id": 14,
+            "author": "a",
+            "upvotes": [
+                42,
+                86,
+                90
+            ],
+            "downvotes": [
+                "khadeejah",
+                "hussain2000"
+            ]
+        },
+        {
+            "text": "hus",
+            "id": 15,
+            "author": "hu",
+            "upvotes": [
+                90
+            ],
+            "downvotes": [
+                "khadeejah",
+                "hussain2000"
+            ]
+        },
+        {
+            "text": "jdyg",
+            "id": 16,
+            "author": "dfgh",
+            "upvotes": [],
+            "downvotes": []
+        },
+        {
+            "text": "im khadeejah",
+            "id": 17,
+            "author": "dfgh",
+            "upvotes": [
+                90
+            ],
+            "downvotes": [
+                "hussain2000"
+            ]
+        },
+        {
+            "text": "HIIIIIIIIIII",
+            "id": 22,
+            "author": "hussain2000",
+            "upvotes": [],
+            "downvotes": []
+        },
+        {
+            "text": "hi",
+            "id": 23,
+            "author": "hussain2000",
+            "upvotes": [],
+            "downvotes": []
+        },
+        {
+            "text": "my",
+            "id": 24,
+            "author": "hussain2000",
+            "upvotes": [],
+            "downvotes": []
+        },
+        {
+            "text": "hooo",
+            "id": 26,
+            "author": "hussain2000",
+            "upvotes": [
+                90
+            ],
+            "downvotes": [
+                "hussain2000"
+            ]
+        }
+    ]
+}

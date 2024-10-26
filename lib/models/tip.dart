@@ -7,9 +7,9 @@ class Tip {
   String text;
   String author;
   List upvotes = [];
-  List downvotes = [];
+  List downvotes;
 
-  Tip({this.id, required this.text, required this.author});
+  Tip({this.id, required this.text, required this.author, required this.upvotes, required this.downvotes});
 
   bool upVoted(int userId) => upvotes.contains(id);
   bool downVoted(String author) => downvotes.contains(author);

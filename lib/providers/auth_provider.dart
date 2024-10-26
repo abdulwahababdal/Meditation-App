@@ -20,6 +20,7 @@ class AuthProvider extends ChangeNotifier {
 
   void signin({required User user}) async {
     token = await AuthServices().signin(user: user);
+    this.user = user;
     _setToken(token);
     //print(token);
     notifyListeners();

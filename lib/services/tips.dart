@@ -19,16 +19,18 @@ class DioClient {
     late Tip retrievedTip;
     try {
       FormData data = FormData.fromMap({
-        "text": tip.text,
-        "author": tip.author,
-        "upvotes": tip.upvotes,
-        "downvotes": tip.downvotes,//await MultipartFile.fromFile(
-          //Tip.image,
-        //),
-      });
+        // 'author': tip.author,
+        // 'upvotes': tip.upvotes,
+        // 'downvotes': tip.downvotes,
+        'text': tip.text,
+        },
+      );
+      print(data.fields);
       Response response = await Client.dio.post('/tips', data: data);
+      print(response.data);
       retrievedTip = Tip.fromJson(response.data);
     } on DioException catch (error) {
+      print("error");
       print(error);
     }
     return retrievedTip;

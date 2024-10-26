@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meditation_app/models/tip.dart';
 import 'package:meditation_app/pages/addTip_page.dart';
 import 'package:meditation_app/pages/homepage.dart';
+import 'package:meditation_app/pages/mytips_page.dart';
 import 'package:meditation_app/pages/signin_page.dart';
 import 'package:meditation_app/pages/signup_page.dart';
 import 'package:meditation_app/providers/auth_provider.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/add',
-        builder: (context, state) => const AddtipPage(),
+        builder: (context, state) => AddtipPage(),
       ),
       // GoRoute(
       //   path: '/update/:petId',
@@ -58,6 +59,10 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/signin',
         builder: (context, state) => SigninPage(),
+      ),
+      GoRoute(
+        path: '/mytips',
+        builder: (context, state) => MytipsPage(),
       ),
     ],
   );

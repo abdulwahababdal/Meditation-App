@@ -19,60 +19,22 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Container(
-              padding: const EdgeInsets.all(8.0),
-              child: const Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.today,
-                    size: 40,
-                  ),
-                  Text("Today", textScaler: TextScaler.linear(1.5)),
-                ],
-              )),
-          Container(
-              padding: const EdgeInsets.all(8.0),
-              child: const Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.calendar_month,
-                    size: 40,
-                  ),
-                  Text("Exercises", textScaler: TextScaler.linear(1.5)),
-                ],
-              )),
-          Container(
-              padding: const EdgeInsets.all(8.0),
-              child: const Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.settings,
-                    size: 40,
-                  ),
-                  Text("Settings", textScaler: TextScaler.linear(1.5)),
-                ],
-              )),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          GoRouter.of(context).push('/add');
-        },
-        child: const Icon(Icons.add),
-      ),
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
       drawer: Drawer(
         child: FutureBuilder(
             future: context.read<AuthProvider>().initAuth(),
-            builder: (context, snapshot) {
+            builder: (context, dataSnapshot) {
+              if (dataSnapshot.connectionState == ConnectionState.waiting) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (dataSnapshot.error != null) {
+                return const Center(
+                  child: Text('An error occurred'),
+                );
+              }
               return Consumer<AuthProvider>(builder: (context, provider, _) {
                 return (provider.isAuth())
                     ? ListView(
@@ -80,8 +42,8 @@ class Homepage extends StatelessWidget {
                         children: [
                           Text("Welcome ${provider.user.username}"),
                           Image.network(
-                            "http://coded-meditation.eapi.joincoded.com/media/1729754471496ku.png",
-                            //provider.user.image!,
+                            //"http://coded-meditation.eapi.joincoded.com/media/1729754471496ku.png",
+                            provider.user.image!,
                             scale: 1.0,
                           ),
                           
@@ -120,7 +82,6 @@ class Homepage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            //TipCard(tip: Tip(text: "text", author: "author")),
             FutureBuilder(
                 future: context.read<TipsProvider>().getTips(),
                 builder: (context, dataSnapshot) {
@@ -149,6 +110,60 @@ class Homepage extends StatelessWidget {
                 }),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (context.read<AuthProvider>().isAuth() || true) {
+            GoRouter.of(context).push('/add');
+          }
+        },
+        child: const Icon(Icons.add),
+      ),
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Container(
+              padding: const EdgeInsets.all(8.0),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.today,
+                    size: 40,
+                  ),
+                  Text("Today", textScaler: TextScaler.linear(1.5)),
+                ],
+              )),
+          Container(
+              padding: const EdgeInsets.all(8.0),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.calendar_month,
+                    size: 40,
+                  ),
+                  Text("Exercises", textScaler: TextScaler.linear(1.5)),
+                ],
+              )),
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).push("/mytips");
+            },
+            child: Container(
+                padding: const EdgeInsets.all(8.0),
+                child: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.settings,
+                      size: 40,
+                    ),
+                    Text("Settings", textScaler: TextScaler.linear(1.5)),
+                  ],
+                )),
+          ),
+        ],
       ),
     );
   }
