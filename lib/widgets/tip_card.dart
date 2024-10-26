@@ -31,8 +31,8 @@ class MyColors {
 
 class TipCard extends StatelessWidget {
   final Tip tip;
-  bool appear = false;
-  TipCard({super.key, required this.tip});
+  bool appear;
+  TipCard({super.key, required this.tip, this.appear = false});
   //TipsProvider provider = context.watch<TipsProvider>();
   
   @override

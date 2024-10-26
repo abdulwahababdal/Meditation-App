@@ -33,7 +33,7 @@ class MytipsPage extends StatelessWidget{
                           itemCount: provider.tips.where((tip) => tip.author == author).toList().length,
                           itemBuilder: (context, index) {
                             //print("creating card");
-                            return TipCard(tip: provider.tips.where((tip) => tip.author == author).toList()[index]);
+                            return TipCard(tip: provider.tips.where((tip) => tip.author == author).toList()[index], appear: true,);
                           }
                         )
                     );
